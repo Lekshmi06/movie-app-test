@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+
 import './App.css';
+// import Navbar from './components/Navbar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Trending from './pages/Trending';
+import Popualar from './pages/Popualar';
+import Toprated from './pages/Toprated';
+import Sidebar from './pages/Sidebar';
+import SglMovie from './pages/SglMovie';
+import Browse from './pages/Browse';
 
 function App() {
+  // const[data,setData] = useState("")
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   
+     
+     <BrowserRouter>
+     <div className='flex'>
+     <Sidebar/>
+     <Routes>
+      {/* <Route element = {<Sidebar />}  > */}
+         <Route index element = {<Home />}/>
+         <Route path = "/trending" element = {<Trending/>} />
+         <Route path = "/popular" element = {<Popualar/>} />
+         <Route path = "/toprated" element = {<Toprated/>} />
+         <Route path = "/sglmovie" element = {<SglMovie/>} />
+         <Route path = "/browse" element = {<Browse/>} />
+       {/* </Route> */}
+     </Routes>
+     </div>
+     </BrowserRouter>
+     
+    
+
   );
 }
 
